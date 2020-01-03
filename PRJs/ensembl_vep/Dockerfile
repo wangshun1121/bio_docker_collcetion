@@ -121,7 +121,8 @@ RUN useradd -r -m -U -d "$OPT" -s /bin/bash -c "VEP User" -p '' vep && usermod -
 USER vep
 
 # Copy downloaded libraries (stage 1) to this image (stage 2)
-COPY --chown=vep:vep --from=builder $OPT_SRC $OPT_SRC
+COPY --from=builder $OPT_SRC $OPT_SRC
+RUN chown -R vep:vep $OPT_SRC
 #############################################################
 
 # Change user to root for the following complilations/installations
