@@ -122,11 +122,12 @@ USER vep
 
 # Copy downloaded libraries (stage 1) to this image (stage 2)
 COPY --from=builder $OPT_SRC $OPT_SRC
-RUN chown -R vep:vep $OPT_SRC
+
 #############################################################
 
 # Change user to root for the following complilations/installations
 USER root
+RUN chown -R vep:vep $OPT_SRC
 
 # Install bioperl-ext, faster alignments for haplo (XS-based BioPerl extensions to C libraries)
 WORKDIR $OPT_SRC/bioperl-ext/Bio/Ext/Align/
