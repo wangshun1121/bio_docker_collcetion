@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Shun Wang <wangshun@aginome.com>
 LABEL authors="wangshun@aginome.com" \
-    description="STAM lossy compression tool benchmark"
+    description="ScaleQC lossy compression tool benchmark"
 
 RUN cd /usr/local/bin && wget -c https://jijiantuchuang-markdown.oss-cn-shenzhen.aliyuncs.com/20-1-6/sqc && chmod 755 /usr/local/bin/sqc
 ADD InstallTools.sh /opt
