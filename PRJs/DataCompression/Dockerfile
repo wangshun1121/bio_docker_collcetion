@@ -11,9 +11,9 @@ RUN cd /opt && bash InstallTools.sh
 
 ADD ./bioconda.install.sh /opt
 RUN cd /opt && bash ./bioconda.install.sh
-ENV PATH $PATH:/root/miniconda2/bin
+ENV PATH $PATH:/opt/miniconda2/bin
 ADD ./bioconda.env.yml /opt
 RUN cd /opt && conda env create -f ./bioconda.env.yml  && conda clean -a
-ENV PATH /root/miniconda2/envs/compressioncompare/bin:$PATH
+ENV PATH /opt/miniconda2/envs/compressioncompare/bin:$PATH
 
 RUN bash -c cpan install Parallel::ForkManager
