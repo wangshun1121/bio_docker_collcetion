@@ -1,6 +1,6 @@
-# apt-get update
-# apt-get install -y --fix-missing build-essential zlib1g-dev unzip libncurses5-dev curl wget python python-pip python-dev cmake libboost-all-dev perl perl-base libxml2-dev libcurl4-gnutls-dev apt-transport-https default-jre default-jdk less vim libtbb-dev git bzip2 gcc g++ make software-properties-common tzdata
-# export LD_LIBRARY_PATH=/usr/local/lib # DOCKER里边的Linux居然这个环境变量默认不设定啊
+apt-get update
+apt-get install -y --fix-missing build-essential zlib1g-dev unzip libncurses5-dev curl wget python python-pip python-dev cmake libboost-all-dev perl perl-base libxml2-dev libcurl4-gnutls-dev apt-transport-https default-jre default-jdk less vim libtbb-dev git bzip2 gcc g++ make software-properties-common tzdata
+export LD_LIBRARY_PATH=/usr/local/lib # DOCKER里边的Linux居然这个环境变量默认不设定啊
 
 SCRAMBLE_VERSION=1.14.9
 apt-get install -y libstaden-read-dev
