@@ -27,9 +27,9 @@ cd ./quartz && make all && cp quartz /usr/local/bin/. # && rm -rf /opt/quartz*
 cd /opt && wget -c https://github.com/mikelhernaez/qvz/archive/master.zip -O qvz-master.zip && unzip qvz-master.zip
 cd ./qvz-master/ && make && cp ./bin/qvz /usr/local/bin/. # && rm -rf /opt/qvz-master*
 
-
-cd /opt && wget -c https://github.com/voges/calq/archive/Bioinformatics_revision_1.zip -O calq-master.zip && unzip calq-master.zip # vogus的东西编译的时候咋都需要google的包，还没把它打包进release中，只能下载master分支
-mkdir ./calq-master/build && cd ./calq-master/build && cmake .. && make -j8 && cp ./calq /usr/local/bin/. # && rm -rf /opt/calq*
+cd /opt && git clone --branch Bioinformatics_revision_1 https://github.com/voges/calq.git
+mkdir ./calq/build && cd ./calq/build && cmake .. && make -j8 && cp ./calq /usr/local/bin/. # && rm -rf /opt/calq*
+cp /opt/calq/src/ngstools/*.py /usr/local/bin/.
 
 QUIP_VERSION=1.1.8
 apt-get install -y autoconf
