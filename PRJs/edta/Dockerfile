@@ -31,7 +31,7 @@ RUN cd /opt && wget https://github.com/lfaino/LoReAn/raw/noIPRS/third_party/soft
     mv ./Libraries /opt/conda/share/RepeatMasker/. && chmod -R 755 /opt/conda/share/RepeatMasker/Libraries && \
     rm -f RepeatMasker.Libraries.tar.gz 
 
-RUN git clone https://github.com/oushujun/EDTA.git
+RUN cd / && git clone https://github.com/oushujun/EDTA.git
 RUN echo "source activate EDTA" > ~/.bashrc
 ENV PATH /opt/conda/envs/env/bin:$PATH
 
