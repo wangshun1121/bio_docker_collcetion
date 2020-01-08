@@ -18,6 +18,6 @@ RUN cd /opt && conda env create -f ./bioconda.env.yml && conda clean -a
 ENV PATH /opt/miniconda2/envs/compressioncompare/bin:$PATH
 RUN cd /usr/local/bin && \
     wget -c https://github.com/refresh-bio/DSRC/releases/download/v2.0.2/dsrc-linux-x64-static.tar.gz && \
-    tar zxf dsrc-linux-x64-static.tar.gz && mv ./bin/dsrc . &&
+    tar zxf dsrc-linux-x64-static.tar.gz && mv ./bin/dsrc . && \
     rm -rf ./bin && rm -f dsrc-linux-x64-static.tar.gz && chmod 755 ./dsrc
 
