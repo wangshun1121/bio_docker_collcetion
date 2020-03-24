@@ -8,6 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          curl \
          ca-certificates \
          libjpeg-dev \
+         default-jre \
+         default-jdk \         
+         openssh-server \
+         openssh-client \
          libpng-dev && \
      rm -rf /var/lib/apt/lists/*
 
