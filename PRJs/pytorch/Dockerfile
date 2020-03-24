@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 ARG PYTHON_VERSION=3.8
 ARG WITH_TORCHVISION=1
 RUN apt-get update && apt-get install -y --no-install-recommends \
