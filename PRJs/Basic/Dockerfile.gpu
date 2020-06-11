@@ -13,23 +13,19 @@ RUN apt-get update && apt-get install -y \
 		libffi-dev \
 		libfreetype6-dev \
 		libhdf5-dev \
-		libjpeg-dev \
 		liblcms2-dev \
 		libopenblas-dev \
 		liblapack-dev \
-		libopenjpeg2 \
-		libpng12-dev \
 		libssl-dev \
-		libtiff5-dev \
 		libwebp-dev \
 		libzmq3-dev \
-		nano \
-    openssh-server \
-    openssh-client \
+		less \
+    		openssh-server \
+    		openssh-client \
 		pkg-config \
 		python-dev \
 		software-properties-common \
-    sudo \
+    		sudo \
 		unzip \
 		vim \
 		wget \
@@ -37,10 +33,7 @@ RUN apt-get update && apt-get install -y \
 		qt5-default \
 		libvtk6-dev \
 		zlib1g-dev \
-		libjpeg-dev \
 		libwebp-dev \
-		libpng-dev \
-		libtiff5-dev \
 		libjasper-dev \
 		libopenexr-dev \
 		libgdal-dev \
