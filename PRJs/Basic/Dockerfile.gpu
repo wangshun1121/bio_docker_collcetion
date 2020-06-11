@@ -1,4 +1,4 @@
-FROM 10.0-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-devel-ubuntu16.04
 MAINTAINER Shun Wang
 
 # Install some dependencies
