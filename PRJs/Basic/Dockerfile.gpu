@@ -104,20 +104,20 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/*
 
 # Install other useful Python packages using pip
-RUN pip --no-cache-dir install --upgrade ipython && \
-	pip --no-cache-dir install \
-		Cython \
-		ipykernel \
-		jupyter \
-		path.py \
-		Pillow \
-		pygments \
-		six \
-		sphinx \
-		wheel \
-		zmq \
-		&& \
-	python -m ipykernel.kernelspec
+# RUN pip --no-cache-dir install --upgrade ipython && \
+# 	pip --no-cache-dir install \
+# 		Cython \
+# 		ipykernel \
+# 		jupyter \
+# 		path.py \
+# 		Pillow \
+# 		pygments \
+# 		six \
+# 		sphinx \
+# 		wheel \
+# 		zmq \
+# 		&& \
+# 	python -m ipykernel.kernelspec
 
 RUN mkdir /var/run/sshd && \
   echo "ulimit -n 40000" >> /etc/profile && useradd imp && \
