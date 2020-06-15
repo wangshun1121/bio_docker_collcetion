@@ -61,6 +61,10 @@ RUN apt-get update && apt-get install -y \
 		ant \
 		default-jdk \
 		doxygen \
+		htop \
+		iputils-ping \
+		net-tools \
+		samba \
 		&& \
 	apt-get clean && \
 	apt-get autoremove && \
@@ -126,6 +130,12 @@ RUN mkdir /var/run/sshd && \
   echo "root:123456"|chpasswd && \
   mkdir /home/imp && cd /root && \
   cp -r `ls -A /root/` /home/imp/. && \
-  chmod -R 777 /home/imp
- 
+  chmod -R 777 /home/imp && \
+	echo "imp    ALL=(ALL:ALL) ALL" >> /etc/sudoers && \
+	echo "PATH=$PATH:/opt/miniconda3/bin" >> /etc/profile && \
+	mv /etc/apt/sources.list /etc/apt/sources.list.backup
+
+ADD sources.list /etc/apt/sources.list
+RUN apt-get clean && apt-get update
+
 CMD /usr/sbin/sshd -D
