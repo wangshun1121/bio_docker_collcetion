@@ -5,8 +5,7 @@ FROM wangshun1121/impbase:20.06.gpu
 # ssh available
 
 RUN conda create -n cv_env python=3.6 && \
-    conda  activate cv_env && \
-    conda install -c pytorch \
+    conda install -c pytorch -n cv_env \
         pytorch==1.2.0 \
         torchvision==0.4.0 \
         cudatoolkit==10.0 
