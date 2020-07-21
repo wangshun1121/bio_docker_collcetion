@@ -3,35 +3,35 @@ FROM ubuntu:18.04
 RUN apt-get clean && \
     apt-get update --fix-missing && \
     apt-get install -y --fix-missing && \
-    zlib1g-dev && \
-    unzip && \
-    libncurses5-dev && \
-    curl && \
-    wget && \
-    python && \
-    python-pip && \
-    python-dev && \
-    cmake && \
-    libboost-all-dev && \
-    perl && \
-    perl-base && \
-    libxml2-dev && \
-    libcurl4-gnutls-dev && \
-    apt-transport-https && \
-    default-jre && \
-    default-jdk && \
-    less && \
-    vim && \
-    libtbb-dev && \
-    git && \
-    bzip2 && \
-    gcc && \
-    g++ && \
-    make && \
-    software-properties-common && \
-    tzdata && \
-    r-base-dev && \
-    openssh-server && \
+    zlib1g-dev  \
+    unzip \
+    libncurses5-dev \
+    curl \
+    wget \
+    python \
+    python-pip \
+    python-dev \
+    cmake \
+    libboost-all-dev \
+    perl \
+    perl-base \
+    libxml2-dev \
+    libcurl4-gnutls-dev \
+    apt-transport-https \
+    default-jre \
+    default-jdk \
+    less \
+    vim \
+    libtbb-dev \
+    git \
+    bzip2 \
+    gcc \
+    g++ \
+    make \
+    software-properties-common \
+    tzdata \
+    r-base-dev \
+    openssh-server \
     openssh-client
 
 RUN mkdir /var/run/sshd && \
