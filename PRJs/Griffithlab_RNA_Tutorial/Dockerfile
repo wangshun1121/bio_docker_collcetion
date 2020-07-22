@@ -30,6 +30,7 @@ RUN apt-get clean && \
     g++ \
     make \
     software-properties-common \
+    libpcre3 libpcre3-dev \
     r-base-dev \
     openssh-server \
     openssh-client
@@ -40,10 +41,10 @@ RUN mkdir /var/run/sshd && \
 
 RUN mkdir -p /home/rna/workspace/rnaseq/student_tools && \
     cd /home/rna/workspace/rnaseq/student_tools && \
-    wget https://stat.ethz.ch/R/daily/R-patched.tar.gz && \
+    wget -q -c https://stat.ethz.ch/R/daily/R-patched.tar.gz && \
     tar -xzvf R-patched.tar.gz && \
     cd R-patched && \
-    ./configure --prefix=/home/rna/workspace/rnaseq/student_tools/R-patched/ --with-x=no && \
+    ./configure --prefix=/home/rna/workspace/rnaseq/student_tools/R-patched/ --with-x=no  --enable-utf8  && \
     make && make install
 
 RUN R -e 'install.packages(c("devtools","BiocManager","dplyr","gplots","ggplot2"),repos="http://cran.us.r-project.org")' && \
