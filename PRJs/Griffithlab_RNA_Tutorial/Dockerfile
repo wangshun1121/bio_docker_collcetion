@@ -29,7 +29,6 @@ RUN apt-get clean && \
     g++ \
     make \
     software-properties-common \
-    tzdata \
     r-base-dev \
     openssh-server \
     openssh-client
