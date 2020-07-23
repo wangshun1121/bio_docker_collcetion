@@ -39,15 +39,16 @@ RUN mkdir /var/run/sshd && \
     echo "ulimit -n 40000" >> /etc/profile && \
     useradd -r -m -s /bin/bash RNA && echo "RNA:123"|chpasswd 
 
-RUN mkdir -p /home/rna/workspace/rnaseq/student_tools && \
-    cd /home/rna/workspace/rnaseq/student_tools && \
-    wget -q -c https://stat.ethz.ch/R/daily/R-patched.tar.gz && \
-    tar -xzvf R-patched.tar.gz && \
-    cd R-patched && \
-    ./configure --prefix=/home/rna/workspace/rnaseq/student_tools/R-patched/ --with-x=no  --enable-utf8  && \
-    make && make install
+# RUN mkdir -p /home/rna/workspace/rnaseq/student_tools && \
+#     cd /home/rna/workspace/rnaseq/student_tools && \
+#     wget -q -c https://stat.ethz.ch/R/daily/R-patched.tar.gz && \
+#     tar -xzvf R-patched.tar.gz && \
+#     cd R-patched && \
+#     ./configure --prefix=/home/rna/workspace/rnaseq/student_tools/R-patched/ --with-x=no  --enable-utf8  && \
+#     make && make install
 
-RUN R -e 'install.packages(c("devtools","BiocManager","dplyr","gplots","ggplot2"),repos="http://cran.us.r-project.org")' && \
+RUN mkdir -p /home/rna/workspace/rnaseq/student_tools && \
+    R -e 'install.packages(c("devtools","BiocManager","dplyr","gplots","ggplot2"),repos="http://cran.us.r-project.org")' && \
     R -e 'BiocManager::install(c("genefilter","ballgown","edgeR","GenomicRanges","rhdf5","biomaRt"))' && \
     R -e 'devtools::install_github("pachterlab/sleuth")'
 
