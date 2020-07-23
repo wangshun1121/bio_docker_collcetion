@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get clean && \
     apt-get update --fix-missing && \
-    apt-get install -y tzdata && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    apt-get install -y --fix-missing -y tzdata && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get install -y --fix-missing \
     zlib1g-dev  \
     unzip \
