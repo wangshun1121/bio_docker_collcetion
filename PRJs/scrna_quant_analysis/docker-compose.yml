@@ -1,0 +1,24 @@
+version: "3"  # xml版本
+services:
+  datasci:
+    image: registry.cn-hangzhou.aliyuncs.com/wangshun1121/scrna_quant_analysis:0.1
+    environment:
+      - PASSWD=password  # PASSWD
+      - ROOTPASSWD=password # 区分普通用户的root密码，如没有，和普通用户相同
+      - WKUSER=user   # 指定用户名
+      - WKUID=1000   # 指定用户ID, 默认是1000
+      - WKGID=1000   # 指定用户GROUPID，默认是1000 ， 这个和WKUID设置成和宿主一致可以搞
+    ports:     # 端口映射，右边是container里的端口，左边是实际端口
+      - 8787:8787
+      - 8888:8888
+      - 8686:8686
+      - 8585:8585
+    volumes:   # 位置映射，右docker内部，左实际
+      - $PWD/pkgs:/opt/miniconda3/pkgs   # 这个不映射在某些低级内核linux上用conda安装软件时会有问题
+      - $PWD/user:/home/user # 工作目录， 要和上面的WKUSER一致
+      - $PWD/log:/opt/log  # 除rstudio外的log目录
+      - $PWD/root:/root # root目录
+    container_name: datasci
+
+
+    
