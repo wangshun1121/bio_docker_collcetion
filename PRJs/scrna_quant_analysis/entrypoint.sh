@@ -18,6 +18,8 @@ if [ $WKGID -lt 1000 ]; then
     exit 1
 fi
 
+THREADS = `grep "proc" /proc/cpuinfo|wc -l`
+
 # set config files
 cp -n /opt/rc/.bashrc /opt/rc/.inputrc /root/
 cp -n /opt/rc/.bashrc /opt/rc/.inputrc /home/$WKUSER/
@@ -33,8 +35,10 @@ echo $WKUSER:$PASSWD | chpasswd
 [[ -v ROOTPASSWD ]] && echo root:$ROOTPASSWD | chpasswd || echo root:$PASSWD | chpasswd
 if [ $CHOWN -gt 0 ]; then
     chown -R $WKUSER:$WKUSER /home/$WKUSER/
-    for d in $(find /opt/miniconda3/share/jupyter -type d); do chmod 777 $d; done
-    for f in $(find /opt/miniconda3/share/jupyter -type f); do chmod 666 $f; done
+    find /opt/miniconda3/share/jupyter -type d|xargs -P $THREADS -i chmod 777 {}
+    find /opt/miniconda3/share/jupyter -type f|xargs -P $THREADS -i chmod 666 {}
+    #for d in $(find /opt/miniconda3/share/jupyter -type d); do chmod 777 $d; done
+    #for f in $(find /opt/miniconda3/share/jupyter -type f); do chmod 666 $f; done
 fi
 
 # set ssl encyption
