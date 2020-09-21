@@ -1,4 +1,4 @@
-FROM leoatchina/datasci
+FROM leoatchina/datasci:latest
 
 RUN apt-get install -y libxml2-dev && \
     pip install -U loompy && \
@@ -8,6 +8,6 @@ RUN apt-get install -y libxml2-dev && \
     R -e 'BiocManager::install("monocle")' && \
     R -e 'library("devtools");install_github(repo = "hhoeflin/hdf5r");install_github(repo = "mojaveazure/loomR", ref = "develop")'
 
-COPY entrypoint.sh /opt/config/entrypoint.sh
+# COPY entrypoint.sh /opt/config/entrypoint.sh
 ENTRYPOINT ["bash", "/opt/config/entrypoint.sh"]
 EXPOSE 8888 8787 8686 8585
