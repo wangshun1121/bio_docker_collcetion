@@ -24,10 +24,9 @@ RUN R -e "BiocManager::install('Biostrings')"
 # Copy configuration files into the Docker image
 COPY ./shiny-server.conf  /etc/shiny-server/shiny-server.conf
 
-RUN useradd shiny -m -d /home/shiny -s /bin/bash -p shiny && \
-    echo shiny:shiny123 | chpasswd && \
-    mkdir -p /var/run/sshd && \
-    openssh-server
-
+RUN echo shiny:shiny123 | chpasswd && \
+    mkdir -p /var/run/sshd 
 EXPOSE 80 22
 
+COPY ./entrypoint.sh /opt/entrypoint.sh
+ENTRYPOINT bash /opt/entrypoint.sh
