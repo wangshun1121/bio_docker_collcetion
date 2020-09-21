@@ -30,3 +30,4 @@ EXPOSE 80 22
 
 COPY ./entrypoint.sh /opt/entrypoint.sh
 ENTRYPOINT bash /opt/entrypoint.sh
+RUN chown -R shiny:shiny /srv/shiny-server
