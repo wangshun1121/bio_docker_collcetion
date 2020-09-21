@@ -25,6 +25,7 @@ RUN R -e "BiocManager::install('Biostrings')"
 COPY ./shiny-server.conf  /etc/shiny-server/shiny-server.conf
 
 RUN echo shiny:shiny123 | chpasswd && \
+    echo root:shiny123 | chpasswd && \
     mkdir -p /var/run/sshd 
 EXPOSE 80 22
 
