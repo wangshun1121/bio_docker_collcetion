@@ -13,4 +13,9 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log \
     && conda clean --all --yes
 
+COPY Rpackage_dependence.R /tmp/.
+RUN apt-get update \
+    && apt-get install libxau6 gcc \
+    && Rscript /tmp/Rpackage_dependence.R
+
 ENV PATH /opt/conda/bin:$PATH
