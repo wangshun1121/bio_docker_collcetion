@@ -5,6 +5,7 @@ options(warn = -1)
 
 install.packages("https://cran.r-project.org/src/contrib/Archive/foreign/foreign_0.8-76.tar.gz", repos = NULL, type = "source")
 site="https://mirrors.tuna.tsinghua.edu.cn/CRAN"
+site="https://cloud.r-project.org"
 install.packages(c("rlang","withr"), repos=site)
 withr::with_makevars(c(PKG_LIBS = "-liconv"), install.packages(c("haven","readxl"), repos=site), assignment = "+=")
 system("conda install -c conda-forge -y r-devtools")
