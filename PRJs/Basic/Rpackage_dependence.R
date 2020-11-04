@@ -11,7 +11,7 @@ system("conda install -c conda-forge -y r-devtools")
 system("conda install -c conda-forge -y r-svglite")
 # system("apt-get install libxau6")
 
-package_list =c("ggpubr", "ggplot2", "optparse", "reshape2", "ggsci", "basicTrendline", "pROC", "scales", "table1", "htmltools", "survival", "survminer", "corrplot", "pheatmap", "RColorBrewer", "rms", "VennDiagram")
+package_list =c("Rserve","ggpubr", "ggplot2", "optparse", "reshape2", "ggsci", "basicTrendline", "pROC", "scales", "table1", "htmltools", "survival", "survminer", "corrplot", "pheatmap", "RColorBrewer", "rms", "VennDiagram")
 for(package in package_list){
   if(!suppressWarnings(suppressMessages(require(package, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))){
     install.packages(package, repos=site)
