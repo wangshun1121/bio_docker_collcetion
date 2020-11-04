@@ -24,7 +24,7 @@ for(package in package_list){
 bioc_package =c("maftools", "org.Hs.eg.db", "clusterProfiler", "org.Mm.eg.db", "org.Rn.eg.db")
 for (package in bioc_package) {
   if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+    install.packages("BiocManager", repos=site)
   
   if(!suppressWarnings(suppressMessages(require(package, character.only = TRUE, quietly = TRUE, warn.conflicts = FALSE)))){
     BiocManager::install(package)
