@@ -13,5 +13,5 @@ COPY Rpackage_dependence.R /tmp/.
 RUN apt-get update \
     && apt-get install -y libxau6 gcc \
     && Rscript /tmp/Rpackage_dependence.R
-RUN agt-get install -y librsvg2-dev
+RUN apt-get install -y librsvg2-dev
 ENV PATH /opt/conda/bin:$PATH
