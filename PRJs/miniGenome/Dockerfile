@@ -17,18 +17,6 @@ RUN apt-get clean && apt-get update --fix-missing \
 ENV PATH $PATH:/opt/miniconda3/bin
 RUN cd /opt && conda env create -p /usr/local -f ./bioconda.env.yml  && conda clean -a
 
-RUN conda install -y -c bioconda bedtools \
-    && conda install -y -c bioconda samtools \
-    && conda install -y -c bioconda bcftools \
-    && conda install -y -c bioconda necat \
-    && conda install -y -c bioconda minimap2 \
-    && conda install -y -c bioconda flye \
-    && conda install -y -c bioconda canu \
-    && conda install -y -c bioconda bwa \
-    && conda install -y -c bioconda hisat2 \
-    && conda install -y -c bioconda spades \
-    && conda install -y -c bioconda velvet
-
 RUN mkdir /var/run/sshd && echo "ulimit -n 40000" >> /etc/profile && useradd user \
     && usermod -s /bin/bash user && echo "user:123456"|chpasswd \
     && echo "root:123456"|chpasswd \
