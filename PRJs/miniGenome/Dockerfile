@@ -5,5 +5,5 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 vim zsh sudo wget gi
     && bash /tmp/miniconda.sh -bfp /usr/local \
     && rm -rf /tmp/miniconda.sh \
     && conda install -y -c conda-forge r-base=3.6.3 python=3.7 \
-    && conda install -y -c bioconda samtools bedtools bcftools necat minimap2 flye canu bwa hisat2 \
+    && conda install -y -c bioconda samtools bedtools bcftools necat minimap2 flye canu bwa hisat2 spades velvet busco\
     && conda update conda 
