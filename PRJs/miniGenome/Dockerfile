@@ -5,8 +5,7 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 vim zsh sudo wget gi
     && bash /tmp/miniconda.sh -bfp /usr/local \
     && rm -rf /tmp/miniconda.sh \
     && conda update conda 
-RUN conda install -y -c bioconda busco \
-    && conda install -y -c bioconda bedtools \
+RUN conda install -y -c bioconda bedtools \
     && conda install -y -c bioconda samtools \
     && conda install -y -c bioconda bcftools \
     && conda install -y -c bioconda necat \
