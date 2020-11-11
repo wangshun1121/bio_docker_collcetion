@@ -1,6 +1,5 @@
 FROM ubuntu:18.04
 
-ADD . /opt
 RUN apt-get clean && apt-get update --fix-missing \
     && apt-get install -y --fix-missing build-essential zlib1g-dev unzip \
         libncurses5-dev curl wget python python-pip python-dev cmake \
@@ -15,7 +14,9 @@ RUN apt-get clean && apt-get update --fix-missing \
     && rm -rf /tmp/miniconda.sh \
     && /opt/miniconda3/bin/conda update conda
 ENV PATH /opt/miniconda3/bin:$PATH
-RUN cd /opt && /opt/miniconda3/bin/conda install -c conda-forge mamba && mamba env create -p /usr/local -f ./bioconda.env.yml  && conda clean -a
+RUN cd /opt && /opt/miniconda3/bin/conda install -y -c conda-forge mamba 
+ADD . /opt
+RUN cd /opt && /opt/miniconda3/bin/mamba env create -p /usr/local -f ./bioconda.env.yml  && conda clean -a
 
 RUN mkdir /var/run/sshd && echo "ulimit -n 40000" >> /etc/profile && useradd user \
     && usermod -s /bin/bash user && echo "user:123456"|chpasswd \
