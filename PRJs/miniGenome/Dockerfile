@@ -16,7 +16,7 @@ RUN apt-get clean && apt-get update --fix-missing \
 ENV PATH /opt/miniconda3/bin:$PATH
 RUN cd /opt && /opt/miniconda3/bin/conda install -y -c conda-forge mamba 
 ADD . /opt
-RUN cd /opt && /opt/miniconda3/bin/mamba env create -n base -f ./bioconda.env.yml  && conda clean -a
+RUN cd /opt && /opt/miniconda3/bin/mamba env create -n work -f ./bioconda.env.yml  && conda clean -a
 
 RUN mkdir /var/run/sshd && echo "ulimit -n 40000" >> /etc/profile && useradd user \
     && usermod -s /bin/bash user && echo "user:123456"|chpasswd \
