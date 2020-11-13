@@ -20,6 +20,7 @@ RUN apt-get update \
 		       libssl-dev \
 		       curl \
 		       make \
+			   cmake \
 		       wget \
 		       python3-all-dev \
 		       python-virtualenv 
@@ -29,7 +30,7 @@ RUN apt-get update \
 #     && tar xf v${MEDAKA_VERSION}.tar.gz \
 #     && rm v${MEDAKA_VERSION}.tar.gz
 # WORKDIR /opt/medaka-${MEDAKA_VERSION}
-RUN git lfs install && cd /opt \
+RUN git lfs install --system --skip-repo && cd /opt \
 	&& git clone https://github.com/nanoporetech/medaka.git --single-branch --depth 1 --branch v1.2.0 \
 	&& cd ./medaka && git lfs pull \
 	&& sed -i 's/tensorflow/tensorflow-gpu/' requirements.txt 
