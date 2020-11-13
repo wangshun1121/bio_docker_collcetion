@@ -36,6 +36,4 @@ RUN git lfs install --system --skip-repo && cd /opt \
 	&& sed -i 's/tensorflow/tensorflow-gpu/' requirements.txt 
 RUN cd /opt/medaka && make install
 ENV PATH="/opt/medaka/venv/bin:$PATH"
-
-#Cleanup
-RUN apt-get clean
+ENV TF_FORCE_GPU_ALLOW_GROWTH=true
