@@ -31,8 +31,9 @@ RUN apt-get update \
 # WORKDIR /opt/medaka-${MEDAKA_VERSION}
 RUN git lfs install && cd /opt \
 	&& git clone https://github.com/nanoporetech/medaka.git --single-branch --depth 1 --branch v1.2.0 \
-	&& cd ./medaka && sed -i 's/tensorflow/tensorflow-gpu/' requirements.txt 
-# RUN cd /opt/medaka && make install
+	&& cd ./medaka && git lfs pull \
+	&& sed -i 's/tensorflow/tensorflow-gpu/' requirements.txt 
+RUN cd /opt/medaka && make install
 ENV PATH="/opt/medaka/venv/bin:$PATH"
 
 #Cleanup
