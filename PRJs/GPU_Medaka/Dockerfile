@@ -35,5 +35,6 @@ RUN git lfs install --system --skip-repo && cd /opt \
 	&& cd ./medaka && git lfs pull \
 	&& sed -i 's/tensorflow/tensorflow-gpu/' requirements.txt 
 RUN cd /opt/medaka && make install
+RUN chown -R root:root /opt/medaka/submodules
 ENV PATH="/opt/medaka/venv/bin:$PATH"
 ENV TF_FORCE_GPU_ALLOW_GROWTH=true
