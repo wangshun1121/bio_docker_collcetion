@@ -6,6 +6,8 @@ RUN apt-get update \
  && apt-get install -y \
                 sed \
                 git \
+                git-lfs \
+                python-pip \
                 g++ \
                 bzip2 \
                 gcc \
